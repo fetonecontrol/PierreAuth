@@ -9,7 +9,7 @@ using PierreAuth.Models;
 namespace PierreAuth.Migrations
 {
     [DbContext(typeof(PierreAuthContext))]
-    [Migration("20200814164411_Initial")]
+    [Migration("20200814182646_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -197,9 +197,7 @@ namespace PierreAuth.Migrations
                     b.Property<int>("FlavorTreatId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("FlavorId");
-
-                    b.Property<int>("FlavortId");
+                    b.Property<int>("FlavorId");
 
                     b.Property<int>("TreatId");
 
@@ -280,7 +278,8 @@ namespace PierreAuth.Migrations
                 {
                     b.HasOne("PierreAuth.Models.Flavor", "Flavor")
                         .WithMany("Treats")
-                        .HasForeignKey("FlavorId");
+                        .HasForeignKey("FlavorId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("PierreAuth.Models.Treat", "Treat")
                         .WithMany("Flavors")

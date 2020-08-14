@@ -195,9 +195,7 @@ namespace PierreAuth.Migrations
                     b.Property<int>("FlavorTreatId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("FlavorId");
-
-                    b.Property<int>("FlavortId");
+                    b.Property<int>("FlavorId");
 
                     b.Property<int>("TreatId");
 
@@ -278,7 +276,8 @@ namespace PierreAuth.Migrations
                 {
                     b.HasOne("PierreAuth.Models.Flavor", "Flavor")
                         .WithMany("Treats")
-                        .HasForeignKey("FlavorId");
+                        .HasForeignKey("FlavorId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("PierreAuth.Models.Treat", "Treat")
                         .WithMany("Flavors")

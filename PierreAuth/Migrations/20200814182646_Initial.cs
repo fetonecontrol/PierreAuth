@@ -192,9 +192,8 @@ namespace PierreAuth.Migrations
                 {
                     FlavorTreatId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    FlavortId = table.Column<int>(nullable: false),
-                    TreatId = table.Column<int>(nullable: false),
-                    FlavorId = table.Column<int>(nullable: true)
+                    FlavorId = table.Column<int>(nullable: false),
+                    TreatId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -204,7 +203,7 @@ namespace PierreAuth.Migrations
                         column: x => x.FlavorId,
                         principalTable: "Flavors",
                         principalColumn: "FlavorId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_FlavorTreats_Treats_TreatId",
                         column: x => x.TreatId,
