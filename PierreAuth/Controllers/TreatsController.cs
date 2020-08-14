@@ -88,7 +88,23 @@ namespace PierreAuth.Controllers
       var thisTreat = _db.Treats.FirstOrDefault(Treat => Treat.TreatId == id);
       return View(thisTreat);
     }
-
+    public IActionResult Search(string search)
+        {
+          List<Treat> treats = _db.Treats.ToList();
+          List<Treat> searchObject = new List<Treat> {};
+          for (int i = 0; i < treats.Count; i++)
+          {
+            if (search != null && treats[i].Description.ToLower().Contains(search.ToLower()))
+            {
+              searchObject.Add(treats[i]);
+            }
+            else
+            {
+              searchObject.Add(treats[i]);
+            }
+          }
+          return View(searchObject[0]);
+        }
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {

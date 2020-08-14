@@ -13,6 +13,11 @@
     {
       <p><h3>@Html.ActionLink($"{Flavor.Description}", "Details", new { id = Flavor.FlavorId })</h3></p>
     }
+    <form action="/Home/Details" method="post">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search">
+      <button type="submit" class="btn btn-primary">Submit!</button>
+    </form>
 } 
 else
 {
@@ -20,5 +25,3 @@ else
 }
 
 <p>@Html.ActionLink("Add New Flavor", "Create")</p>
-<p>@Html.ActionLink("See all Treats", "Index", "Treats")</p>
-<p>@Html.ActionLink("See all Flavors", "Index", "Flavors")</p>

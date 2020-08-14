@@ -2,11 +2,17 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Flavor Box</title>
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-    <link rel="stylesheet" href="~/css/styles.css">
+    <title>Pierre's Breads</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='~/css/styles.css'>
   </head>
   <body>
-    @RenderBody()
+    @Html.Partial("NavBar")
+    <div class="section">
+      <div class="box">
+        @RenderBody()
+      </div>
+    </div>  
+    </div>
   </body>
 </html>
