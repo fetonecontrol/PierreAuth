@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@using PierreAuth.ViewModels
+
+@model RegisterViewModel
+
+<h1>Register a new user</h1>
+<hr />
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+    @Html.LabelFor(user => user.Email)<br>
+    @Html.TextBoxFor(user=> user.Email)<br>
+
+    @Html.LabelFor(user=> user.Password)<br>
+    @Html.PasswordFor(user=> user.Password)<br>
+
+    @Html.LabelFor(user=> user.ConfirmPassword)<br>
+    @Html.PasswordFor(user=> user.ConfirmPassword)<br>
+
+    <input type="submit" value="Register" />
+}
