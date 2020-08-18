@@ -12,6 +12,7 @@ namespace PierreAuth.Controllers
     {
         public IActionResult Index()
         {
+            var allRecipes = Recipe.GetArticles(EnvironmentVariables.ApiKey);
             return View();
         }
     }

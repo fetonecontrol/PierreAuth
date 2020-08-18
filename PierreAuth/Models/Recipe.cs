@@ -2,13 +2,17 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace MvcApiCall.Models
+namespace PierreAuth.Models
 {
   public class Recipe
   {
-  }
+    public string Section { get; set; }
+    public string Title { get; set; }
+    public string Abstract { get; set; }
+    public string Url { get; set; }
+    public string Byline { get; set; }
 
-    public static List<Recipe> GetRecipes(string apiKey)
+    public static List<Recipe> GetArticles(string apiKey)
     {
       var apiCallTask = ApiHelper.ApiCall(apiKey);
       var result = apiCallTask.Result;
