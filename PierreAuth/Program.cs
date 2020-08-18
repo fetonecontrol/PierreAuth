@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using RestSharp;
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 
 namespace PierreAuth
 {
@@ -10,7 +11,7 @@ namespace PierreAuth
     {
         public static void Main(string[] args)
         {
-            var apiCallTask = ApiHelper.ApiCall("[YOUR-API-KEY-HERE]");
+            var apiCallTask = ApiHelper.ApiCall("[EnvironmentVariable.ApiKey]");
             var result = apiCallTask.Result;
             Console.WriteLine(result);
         }
