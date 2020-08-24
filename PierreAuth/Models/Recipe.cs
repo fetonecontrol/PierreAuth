@@ -13,7 +13,7 @@ namespace PierreAuth.Models
     public string Url { get; set; }
     public string Byline { get; set; }
 
-    public static List<Recipe> GetRecipes()
+    public static List<Recipe> GetRecipes(string apiKey)
     {
       var apiCallTask = ApiHelper.ApiCall(apiKey);
       var result = apiCallTask.Result;
