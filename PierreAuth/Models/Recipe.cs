@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using PierreAuth.Models;
+using System.Threading.Tasks;
+using RestSharp;
+
 
 namespace PierreAuth.Models
 {
