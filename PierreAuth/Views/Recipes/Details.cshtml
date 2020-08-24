@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@using PierreAuth.Models
+
+<h1>All Available Recipes:</h1>
+@foreach (Recipe recipe in Model)
+{
+    <ul>
+        <li>Section: @recipe.Section.</li>
+        <li>Title: @recipe.Title</li>
+        <li>Abstract: @recipe.Abstract)</li>
+        <li>Url: @recipe.Url)</li>
+        <li>Byline: @recipe.Byline)</li>
+    </ul>
+    <br>
+}
+
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
