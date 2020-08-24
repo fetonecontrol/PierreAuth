@@ -1,9 +1,7 @@
 using System.Collections.Generic;
+using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System.Threading.Tasks;
-using RestSharp;
-
 
 namespace PierreAuth.Models
 {
@@ -15,7 +13,7 @@ namespace PierreAuth.Models
     public string Url { get; set; }
     public string Byline { get; set; }
 
-    public static List<Recipe> GetArticles(string apiKey)
+    public static List<Recipe> GetRecipes()
     {
       var apiCallTask = ApiHelper.ApiCall(apiKey);
       var result = apiCallTask.Result;
