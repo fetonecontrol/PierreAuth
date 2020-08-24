@@ -1,33 +1,21 @@
-﻿using System;
-using System.Threading.Tasks;
-using RestSharp;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
+﻿using System.IO;
+using Microsoft.AspNetCore.Hosting;
+
 
 namespace PierreAuth
 {
     public class Program
     {
         public static void Main(string[] args)
-        {
-            var apiCallTask = ApiHelper.ApiCall("[EnvironmentVariable.ApiKey]");
-            var result = apiCallTask.Result;
-            Console.WriteLine(result);
-        }
-            class ApiHelper
-        {
-        public static async Task<string> ApiCall(string apiKey)
-        {
-        RestClient client = new RestClient("https://webknox-recipes.p.rapidapi.com/recipes/cuisine");
-        RestRequest request = new RestRequest($"home.json?api-key={apiKey}", Method.GET);
-        var response = await client.ExecuteTaskAsync(request);
-        return response.Content;
-        }
-    }
+    {
+        var host = new WebHostBuilder()
+        .UseKestrel()
+        .UseContentRoot(Directory.GetCurrentDirectory())
+        .UseIISIntegration()
+        .UseStartup<Startup>()
+        .Build();
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+        host.Run();
     }
+  }
 }

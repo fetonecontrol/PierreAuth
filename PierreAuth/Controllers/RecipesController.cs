@@ -8,11 +8,12 @@ using PierreAuth.Models;
 
 namespace PierreAuth.Controllers
 {
-    public class HomeController : Controller
+    public class RecipeController : Controller
     {
         public IActionResult Index()
         {
-            return View();
+            var allRecipes = Recipe.GetRecipes(EnvironmentVariables.ApiKey);
+            return View(allRecipes);
         }
     }
 }
